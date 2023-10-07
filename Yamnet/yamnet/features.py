@@ -5,10 +5,6 @@ import tensorflow as tf
 def waveform_to_log_mel_spectrogram(waveform, params):
   """Compute log mel spectrogram of a 1-D waveform."""
   with tf.name_scope('log_mel_features'):
-    # waveform has shape [<# samples>]
-
-    # Convert waveform into spectrogram using a Short-Time Fourier Transform.
-    # Note that tf.signal.stft() uses a periodic Hann window by default.
     window_length_samples = int(
       round(params.SAMPLE_RATE * params.STFT_WINDOW_SECONDS))
     hop_length_samples = int(

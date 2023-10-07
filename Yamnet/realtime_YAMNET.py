@@ -8,8 +8,7 @@ import Yamnet.yamnet.params as params
 import Yamnet.yamnet.yamnet as yamnet_model
 from loguru import logger
 
-def process_audio():
-    
+def process_audio(display_func):
     yamnet = yamnet_model.yamnet_frames_model(params)
     yamnet.load_weights("Yamnet/yamnet/yamnet.h5")
     yamnet_classes = yamnet_model.class_names("Yamnet/yamnet/yamnet_class_map.csv")
@@ -40,14 +39,12 @@ def process_audio():
 
         top5_i = np.argsort(prediction)[::-1][:5]
 
-        # print result
-        print(
-            "Current event:\n"
-            + "\n".join(
-                "  {:12s}: {:.3f}".format(yamnet_classes[i], prediction[i])
-                for i in top5_i
-            )
+        # append result to list
+        result = "Current event:\n" + "\n".join(
+            "  {:12s}: {:.3f}".format(yamnet_classes[i], prediction[i])
+            for i in top5_i
         )
+        display_func(result)
 
     stream.stop_stream()
     stream.close()
