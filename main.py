@@ -42,24 +42,45 @@ class VideoThread(QThread):
 
         video_capture.release()
 
+class VideoThreadFace(QThread):
+    image_data_face = pyqtSignal(object)
 
+    def run(self):
+        video_capture_face = cv2.VideoCapture(0)
+
+        while True:
+            ret, frame = video_capture_face.read()
+
+            if ret:
+                rgb_image_face = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                resized_image_face = cv2.resize(rgb_image_face, (640, 640))
+                self.image_data_face.emit(resized_image_face)
+
+            if cv2.waitKey(1) == 27:
+                break
+
+        video_capture_face.release()
+        
 # Добавление юзера в БД
 class AddUserWidget(QWidget):
     def __init__(self):
         super().__init__()
 
         self.ui = AddUsersWidget()
-        self.video_thread = VideoThread()
         self.ui.setupUi(self)
+        
+        self.video_thread_face = VideoThreadFace()
+        self.video_thread_face.image_data_face.connect(self.update_image_face)
+        self.video_thread_face.start()
 
-    def update_image(self, image):
+    def update_image_face(self, image):
         h, w, ch = image.shape
         bytes_per_line = ch * w
         q_image = QImage(image.data, w, h, bytes_per_line, QImage.Format_RGB888)
         pixmap = QPixmap.fromImage(q_image)
-        self.videoFromWebCam.setPixmap(
+        self.ui.videoFromWebCam.setPixmap(
             pixmap.scaled(
-                self.videoFromWebCam.size(), aspectRatioMode=Qt.KeepAspectRatio
+                self.ui.videoFromWebCam.size(), aspectRatioMode=Qt.KeepAspectRatio
             )
         )
 
@@ -119,7 +140,7 @@ class Worker(QtCore.QObject):
         yamnet.load_weights("Yamnet/yamnet/yamnet.h5")
         yamnet_classes = yamnet_model.class_names("Yamnet/yamnet/yamnet_class_map.csv")
 
-        frame_len = int(params.SAMPLE_RATE * 1)  # 5sec
+        frame_len = int(params.SAMPLE_RATE * 1)  # 1sec
 
         p = pyaudio.PyAudio()
         stream = p.open(

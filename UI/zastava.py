@@ -163,10 +163,7 @@ class Ui_Zastava(object):
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
         )
         self.YamnetTextBox.setStyleSheet(
-            "color: rgb(255, 255, 255);\n"
-            "font: bold 22px;\n"
-            "padding: 6px;\n"
-            "text-align: center;\n"
+            "QTextBrowser { text-align: center; color: white; font: bold 26px; padding: 6px; align-items: center};"
         )
         self.YamnetTextBox.setAlignment(QtCore.Qt.AlignCenter)
         sizePolicy.setHorizontalStretch(0)
@@ -743,7 +740,7 @@ class Ui_Zastava(object):
                 '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n'
                 '<html><head><meta name="qrichtext" content="1" /><style type="text/css">\n'
                 "p, li { white-space: pre-wrap; }\n"
-                "</style></head><body style=\"color:white; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+                '</style></head><body style="color:white; font-size:7.8pt; font-weight:400; font-style:normal;">\n'
                 '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; color:white; -qt-block-indent:0; text-indent:0px; font-size:14.8pt;"><br /></p></body></html>',
             )
         )
