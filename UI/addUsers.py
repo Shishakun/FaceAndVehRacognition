@@ -6,7 +6,7 @@ class Ui_AddUsersWidget(object):
         AddUsersWidget.setObjectName("AddUsersWidget")
         AddUsersWidget.resize(1280, 720)
         AddUsersWidget.setMinimumSize(QtCore.QSize(1280, 720))
-        AddUsersWidget.setMaximumSize(QtCore.QSize(1280, 720))
+        AddUsersWidget.setMaximumSize(QtCore.QSize(1920, 1080))
         AddUsersWidget.setStyleSheet("background-color: rgb(26, 26, 26);")
         self.horizontalLayout = QtWidgets.QHBoxLayout(AddUsersWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -253,7 +253,7 @@ class Ui_AddUsersWidget(object):
         _translate = QtCore.QCoreApplication.translate
         AddUsersWidget.setWindowTitle(_translate("AddUsersWidget", "Form"))
         self.SaveFotoFromWebCamButton.setText(
-            _translate("AddUsersWidget", "Сделать фото")
+            _translate("AddUsersWidget", "Включить/выключить видеопоток ")
         )
         self.VvediteDannie.setText(_translate("AddUsersWidget", "Введите данные"))
         self.Rank.setText(_translate("AddUsersWidget", "Воинское звание"))
@@ -264,21 +264,21 @@ class Ui_AddUsersWidget(object):
         self.RankComboBoxAdd.setItemText(2, _translate("AddUsersWidget", "Майор"))
         self.RankComboBoxAdd.setItemText(3, _translate("AddUsersWidget", "Капитан"))
         self.RankComboBoxAdd.setItemText(
-            4, _translate("AddUsersWidget", "Старший лейтенант")
+            4, _translate("AddUsersWidget", "Старший_лейтенант")
         )
         self.RankComboBoxAdd.setItemText(5, _translate("AddUsersWidget", "Лейтенант"))
         self.RankComboBoxAdd.setItemText(6, _translate("AddUsersWidget", "Старшина"))
         self.RankComboBoxAdd.setItemText(
-            7, _translate("AddUsersWidget", "Старший сержант")
+            7, _translate("AddUsersWidget", "Старший_сержант")
         )
         self.RankComboBoxAdd.setItemText(8, _translate("AddUsersWidget", "Сержант"))
         self.RankComboBoxAdd.setItemText(
-            9, _translate("AddUsersWidget", "Младший сержант")
+            9, _translate("AddUsersWidget", "Младший_сержант")
         )
         self.RankComboBoxAdd.setItemText(10, _translate("AddUsersWidget", "Ефрейтор"))
         self.RankComboBoxAdd.setItemText(11, _translate("AddUsersWidget", "Рядовой"))
         self.RankComboBoxAdd.setItemText(
-            12, _translate("AddUsersWidget", "Гражданский персонал")
+            12, _translate("AddUsersWidget", "Гражданский_персонал")
         )
         self.Surname.setText(_translate("AddUsersWidget", "Фамилия"))
         self.Name.setText(_translate("AddUsersWidget", "Имя"))

@@ -1,5 +1,4 @@
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtCore import Qt
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Zastava(object):
@@ -49,7 +48,7 @@ class Ui_Zastava(object):
             "}"
         )
         self.vehicleRecognition.setObjectName("vehicleRecognition")
-        self.vehicleRecognition.clicked.connect(self.show_page_1)
+        self.vehicleRecognition.clicked.connect(self.show_page_10)
         self.horizontalLayout.addWidget(self.vehicleRecognition)
         self.faceRecognition = QtWidgets.QPushButton(self.buttonContainer)
         self.faceRecognition.setStyleSheet(
@@ -70,7 +69,7 @@ class Ui_Zastava(object):
             "}"
         )
         self.faceRecognition.setObjectName("faceRecognition")
-        self.faceRecognition.clicked.connect(self.show_page_2)
+        self.faceRecognition.clicked.connect(self.show_page_20)
         self.horizontalLayout.addWidget(self.faceRecognition)
         self.verticalLayout_2.addWidget(self.buttonContainer)
         self.stackedWidgetPage = QtWidgets.QStackedWidget(self.headerContainer)
@@ -106,7 +105,7 @@ class Ui_Zastava(object):
         self.videoContainerAllRecog = QtWidgets.QWidget(self.leftContainerAllRecog)
         self.videoContainerAllRecog.setObjectName("videoContainerAllRecog")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.videoContainerAllRecog)
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 18)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(4)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.videoTitleAllRecog = QtWidgets.QLabel(self.videoContainerAllRecog)
@@ -132,15 +131,39 @@ class Ui_Zastava(object):
             self.videoWindowAllRecog.sizePolicy().hasHeightForWidth()
         )
         self.videoWindowAllRecog.setSizePolicy(sizePolicy)
-        self.videoWindowAllRecog.setMinimumSize(QtCore.QSize(1000, 700))
+        self.videoWindowAllRecog.setMinimumSize(QtCore.QSize(500, 700))
         self.videoWindowAllRecog.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
+            "color: rgb(255, 255, 255);\n"
+            "background-color: rgb(46, 46, 46);\n"
+            "border-radius: 10px;\n"
+            "font: bold 14px;\n"
+            "min-width: 10em;\n"
+            "padding: 6px; "
         )
-        self.videoWindowAllRecog.setFrameShape(QtWidgets.QLabel.StyledPanel)
-        self.videoWindowAllRecog.setFrameShadow(QtWidgets.QLabel.Raised)
-        self.videoWindowAllRecog.setAlignment(Qt.AlignCenter)
+        self.videoWindowAllRecog.setText("")
         self.videoWindowAllRecog.setObjectName("videoWindowAllRecog")
         self.verticalLayout_4.addWidget(self.videoWindowAllRecog)
+        self.OnOffAllRecogButton = QtWidgets.QPushButton(self.videoContainerAllRecog)
+        self.OnOffAllRecogButton.setMinimumSize(QtCore.QSize(182, 30))
+        self.OnOffAllRecogButton.setStyleSheet(
+            "QPushButton{\n"
+            "background-color: rgb(35, 35, 35);\n"
+            "color: #ffffff;\n"
+            "border-style: outset;\n"
+            "border-radius: 7px;\n"
+            "font: bold 14px;\n"
+            "min-width: 10em;\n"
+            "padding: 6px;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "background-color: rgb(46, 46, 46);\n"
+            "}\n"
+            "QPushButton:unactive{\n"
+            "background-color: rgb(46, 46, 46);\n"
+            "}"
+        )
+        self.OnOffAllRecogButton.setObjectName("OnOffAllRecogButton")
+        self.verticalLayout_4.addWidget(self.OnOffAllRecogButton)
         self.verticalLayout_3.addWidget(self.videoContainerAllRecog)
         self.soundRecognitionContainer = QtWidgets.QWidget(self.leftContainerAllRecog)
         self.soundRecognitionContainer.setObjectName("soundRecognitionContainer")
@@ -162,17 +185,16 @@ class Ui_Zastava(object):
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
         )
-        self.YamnetTextBox.setStyleSheet(
-            "QTextBrowser { text-align: center; color: white; font: bold 26px; padding: 6px; align-items: center};"
-        )
-        self.YamnetTextBox.setAlignment(QtCore.Qt.AlignCenter)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
             self.YamnetTextBox.sizePolicy().hasHeightForWidth()
         )
         self.YamnetTextBox.setSizePolicy(sizePolicy)
-        self.YamnetTextBox.setObjectName("YamnetTextBox")
+        self.YamnetTextBox.setObjectName("textBrowser")
+        self.YamnetTextBox.setStyleSheet(
+            "QTextBrowser { text-align: center; color: white; font: bold 26px; padding: 6px};"
+        )
         self.verticalLayout_5.addWidget(self.YamnetTextBox)
         self.verticalLayout_3.addWidget(self.soundRecognitionContainer)
         self.horizontalLayout_2.addWidget(self.leftContainerAllRecog)
@@ -435,10 +457,31 @@ class Ui_Zastava(object):
         self.videoPotokFaceRecog.setStyleSheet(
             "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
         )
-        self.videoPotokFaceRecog.setAlignment(QtCore.Qt.AlignCenter)
         self.videoPotokFaceRecog.setText("")
         self.videoPotokFaceRecog.setObjectName("videoPotokFaceRecog")
         self.verticalLayout_24.addWidget(self.videoPotokFaceRecog)
+        self.OnOffVideoFaceRecogButton = QtWidgets.QPushButton(
+            self.videoFaceRecogContainer
+        )
+        self.OnOffVideoFaceRecogButton.setStyleSheet(
+            "QPushButton{\n"
+            "background-color: rgb(35, 35, 35);\n"
+            "color: #ffffff;\n"
+            "border-style: outset;\n"
+            "border-radius: 7px;\n"
+            "font: bold 14px;\n"
+            "min-width: 10em;\n"
+            "padding: 6px;\n"
+            "}\n"
+            "QPushButton:hover{\n"
+            "background-color: rgb(46, 46, 46);\n"
+            "}\n"
+            "QPushButton:unactive{\n"
+            "background-color: rgb(46, 46, 46);\n"
+            "}"
+        )
+        self.OnOffVideoFaceRecogButton.setObjectName("OnOffVideoFaceRecogButton")
+        self.verticalLayout_24.addWidget(self.OnOffVideoFaceRecogButton)
         self.usersButtonPanel = QtWidgets.QFrame(self.videoFaceRecogContainer)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
@@ -492,13 +535,12 @@ class Ui_Zastava(object):
             self.historyFaceRecogContainer.sizePolicy().hasHeightForWidth()
         )
         self.historyFaceRecogContainer.setSizePolicy(sizePolicy)
-        self.historyFaceRecogContainer.setMinimumSize(QtCore.QSize(500, 0))
+        self.historyFaceRecogContainer.setMinimumSize(QtCore.QSize(600, 0))
         self.historyFaceRecogContainer.setMaximumSize(QtCore.QSize(500, 16777215))
         self.historyFaceRecogContainer.setObjectName("historyFaceRecogContainer")
-        self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.historyFaceRecogContainer)
-        self.verticalLayout_23.setContentsMargins(0, 4, 0, 0)
-        self.verticalLayout_23.setSpacing(4)
-        self.verticalLayout_23.setObjectName("verticalLayout_23")
+        self.gridLayout = QtWidgets.QGridLayout(self.historyFaceRecogContainer)
+        self.gridLayout.setContentsMargins(0, 4, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
         self.historyFaceRecog1 = QtWidgets.QFrame(self.historyFaceRecogContainer)
         self.historyFaceRecog1.setStyleSheet(
             "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
@@ -506,216 +548,35 @@ class Ui_Zastava(object):
         self.historyFaceRecog1.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.historyFaceRecog1.setFrameShadow(QtWidgets.QFrame.Raised)
         self.historyFaceRecog1.setObjectName("historyFaceRecog1")
-        self.horizontalLayout_35 = QtWidgets.QHBoxLayout(self.historyFaceRecog1)
-        self.horizontalLayout_35.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_35.setSpacing(0)
-        self.horizontalLayout_35.setObjectName("horizontalLayout_35")
-        self.historyForoFaceRecog1 = QtWidgets.QLabel(self.historyFaceRecog1)
-        self.historyForoFaceRecog1.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog1.setText("")
-        self.historyForoFaceRecog1.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog1.setObjectName("historyForoFaceRecog1")
-        self.horizontalLayout_35.addWidget(self.historyForoFaceRecog1)
-        self.historyInfoFaceRecog1 = QtWidgets.QLabel(self.historyFaceRecog1)
-        self.historyInfoFaceRecog1.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog1.setStyleSheet(
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.historyFaceRecog1)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.historyPhotoFaceRecog1 = QtWidgets.QLabel(self.historyFaceRecog1)
+        self.historyPhotoFaceRecog1.setMinimumSize(QtCore.QSize(400, 600))
+        self.historyPhotoFaceRecog1.setStyleSheet(
             "color: #ffffff;\n"
             "font-family: Roboto;\n"
             "font-size: 14px;\n"
+            "font-weight: bold;"
+        )
+        self.historyPhotoFaceRecog1.setText("")
+        self.historyPhotoFaceRecog1.setAlignment(QtCore.Qt.AlignCenter)
+        self.historyPhotoFaceRecog1.setWordWrap(True)
+        self.historyPhotoFaceRecog1.setObjectName("historyPhotoFaceRecog1")
+        self.verticalLayout_7.addWidget(self.historyPhotoFaceRecog1)
+        self.historyInfoFaceRecog1 = QtWidgets.QLabel(self.historyFaceRecog1)
+        self.historyInfoFaceRecog1.setMinimumSize(QtCore.QSize(400, 0))
+        self.historyInfoFaceRecog1.setStyleSheet(
+            "color: #ffffff;\n"
+            "font-family: Roboto;\n"
+            "font-size: 28px;\n"
             "font-weight: bold;"
         )
         self.historyInfoFaceRecog1.setText("")
         self.historyInfoFaceRecog1.setAlignment(QtCore.Qt.AlignCenter)
         self.historyInfoFaceRecog1.setWordWrap(True)
         self.historyInfoFaceRecog1.setObjectName("historyInfoFaceRecog1")
-        self.horizontalLayout_35.addWidget(self.historyInfoFaceRecog1)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog1)
-        self.historyFaceRecog2 = QtWidgets.QFrame(self.historyFaceRecogContainer)
-        self.historyFaceRecog2.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
-        )
-        self.historyFaceRecog2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.historyFaceRecog2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.historyFaceRecog2.setObjectName("historyFaceRecog2")
-        self.horizontalLayout_36 = QtWidgets.QHBoxLayout(self.historyFaceRecog2)
-        self.horizontalLayout_36.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_36.setSpacing(0)
-        self.horizontalLayout_36.setObjectName("horizontalLayout_36")
-        self.historyForoFaceRecog2 = QtWidgets.QLabel(self.historyFaceRecog2)
-        self.historyForoFaceRecog2.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog2.setText("")
-        self.historyForoFaceRecog2.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog2.setObjectName("historyForoFaceRecog2")
-        self.horizontalLayout_36.addWidget(self.historyForoFaceRecog2)
-        self.historyInfoFaceRecog2 = QtWidgets.QLabel(self.historyFaceRecog2)
-        self.historyInfoFaceRecog2.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog2.setStyleSheet(
-            "color: #ffffff;\n"
-            "font-family: Roboto;\n"
-            "font-size: 14px;\n"
-            "font-weight: bold;"
-        )
-        self.historyInfoFaceRecog2.setText("")
-        self.historyInfoFaceRecog2.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyInfoFaceRecog2.setWordWrap(True)
-        self.historyInfoFaceRecog2.setObjectName("historyInfoFaceRecog2")
-        self.horizontalLayout_36.addWidget(self.historyInfoFaceRecog2)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog2)
-        self.historyFaceRecog7 = QtWidgets.QFrame(self.historyFaceRecogContainer)
-        self.historyFaceRecog7.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
-        )
-        self.historyFaceRecog7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.historyFaceRecog7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.historyFaceRecog7.setObjectName("historyFaceRecog7")
-        self.horizontalLayout_41 = QtWidgets.QHBoxLayout(self.historyFaceRecog7)
-        self.horizontalLayout_41.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_41.setSpacing(0)
-        self.horizontalLayout_41.setObjectName("horizontalLayout_41")
-        self.historyForoFaceRecog7 = QtWidgets.QLabel(self.historyFaceRecog7)
-        self.historyForoFaceRecog7.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog7.setText("")
-        self.historyForoFaceRecog7.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog7.setObjectName("historyForoFaceRecog7")
-        self.horizontalLayout_41.addWidget(self.historyForoFaceRecog7)
-        self.historyInfoFaceRecog7 = QtWidgets.QLabel(self.historyFaceRecog7)
-        self.historyInfoFaceRecog7.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog7.setStyleSheet(
-            "color: #ffffff;\n"
-            "font-family: Roboto;\n"
-            "font-size: 14px;\n"
-            "font-weight: bold;"
-        )
-        self.historyInfoFaceRecog7.setText("")
-        self.historyInfoFaceRecog7.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyInfoFaceRecog7.setWordWrap(True)
-        self.historyInfoFaceRecog7.setObjectName("historyInfoFaceRecog7")
-        self.horizontalLayout_41.addWidget(self.historyInfoFaceRecog7)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog7)
-        self.historyFaceRecog6 = QtWidgets.QFrame(self.historyFaceRecogContainer)
-        self.historyFaceRecog6.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
-        )
-        self.historyFaceRecog6.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.historyFaceRecog6.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.historyFaceRecog6.setObjectName("historyFaceRecog6")
-        self.horizontalLayout_40 = QtWidgets.QHBoxLayout(self.historyFaceRecog6)
-        self.horizontalLayout_40.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_40.setSpacing(0)
-        self.horizontalLayout_40.setObjectName("horizontalLayout_40")
-        self.historyForoFaceRecog6 = QtWidgets.QLabel(self.historyFaceRecog6)
-        self.historyForoFaceRecog6.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog6.setText("")
-        self.historyForoFaceRecog6.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog6.setObjectName("historyForoFaceRecog6")
-        self.horizontalLayout_40.addWidget(self.historyForoFaceRecog6)
-        self.historyInfoFaceRecog6 = QtWidgets.QLabel(self.historyFaceRecog6)
-        self.historyInfoFaceRecog6.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog6.setStyleSheet(
-            "color: #ffffff;\n"
-            "font-family: Roboto;\n"
-            "font-size: 14px;\n"
-            "font-weight: bold;"
-        )
-        self.historyInfoFaceRecog6.setText("")
-        self.historyInfoFaceRecog6.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyInfoFaceRecog6.setWordWrap(True)
-        self.historyInfoFaceRecog6.setObjectName("historyInfoFaceRecog6")
-        self.horizontalLayout_40.addWidget(self.historyInfoFaceRecog6)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog6)
-        self.historyFaceRecog5 = QtWidgets.QFrame(self.historyFaceRecogContainer)
-        self.historyFaceRecog5.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
-        )
-        self.historyFaceRecog5.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.historyFaceRecog5.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.historyFaceRecog5.setObjectName("historyFaceRecog5")
-        self.horizontalLayout_39 = QtWidgets.QHBoxLayout(self.historyFaceRecog5)
-        self.horizontalLayout_39.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_39.setSpacing(0)
-        self.horizontalLayout_39.setObjectName("horizontalLayout_39")
-        self.historyForoFaceRecog5 = QtWidgets.QLabel(self.historyFaceRecog5)
-        self.historyForoFaceRecog5.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog5.setText("")
-        self.historyForoFaceRecog5.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog5.setObjectName("historyForoFaceRecog5")
-        self.horizontalLayout_39.addWidget(self.historyForoFaceRecog5)
-        self.historyInfoFaceRecog5 = QtWidgets.QLabel(self.historyFaceRecog5)
-        self.historyInfoFaceRecog5.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog5.setStyleSheet(
-            "color: #ffffff;\n"
-            "font-family: Roboto;\n"
-            "font-size: 14px;\n"
-            "font-weight: bold;"
-        )
-        self.historyInfoFaceRecog5.setText("")
-        self.historyInfoFaceRecog5.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyInfoFaceRecog5.setWordWrap(True)
-        self.historyInfoFaceRecog5.setObjectName("historyInfoFaceRecog5")
-        self.horizontalLayout_39.addWidget(self.historyInfoFaceRecog5)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog5)
-        self.historyFaceRecog4 = QtWidgets.QFrame(self.historyFaceRecogContainer)
-        self.historyFaceRecog4.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
-        )
-        self.historyFaceRecog4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.historyFaceRecog4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.historyFaceRecog4.setObjectName("historyFaceRecog4")
-        self.horizontalLayout_38 = QtWidgets.QHBoxLayout(self.historyFaceRecog4)
-        self.horizontalLayout_38.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_38.setSpacing(0)
-        self.horizontalLayout_38.setObjectName("horizontalLayout_38")
-        self.historyForoFaceRecog4 = QtWidgets.QLabel(self.historyFaceRecog4)
-        self.historyForoFaceRecog4.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog4.setText("")
-        self.historyForoFaceRecog4.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog4.setObjectName("historyForoFaceRecog4")
-        self.horizontalLayout_38.addWidget(self.historyForoFaceRecog4)
-        self.historyInfoFaceRecog4 = QtWidgets.QLabel(self.historyFaceRecog4)
-        self.historyInfoFaceRecog4.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog4.setStyleSheet(
-            "color: #ffffff;\n"
-            "font-family: Roboto;\n"
-            "font-size: 14px;\n"
-            "font-weight: bold;"
-        )
-        self.historyInfoFaceRecog4.setText("")
-        self.historyInfoFaceRecog4.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyInfoFaceRecog4.setWordWrap(True)
-        self.historyInfoFaceRecog4.setObjectName("historyInfoFaceRecog4")
-        self.horizontalLayout_38.addWidget(self.historyInfoFaceRecog4)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog4)
-        self.historyFaceRecog3 = QtWidgets.QFrame(self.historyFaceRecogContainer)
-        self.historyFaceRecog3.setStyleSheet(
-            "background-color: rgb(46, 46, 46);\n" "border-radius: 10px;"
-        )
-        self.historyFaceRecog3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.historyFaceRecog3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.historyFaceRecog3.setObjectName("historyFaceRecog3")
-        self.horizontalLayout_37 = QtWidgets.QHBoxLayout(self.historyFaceRecog3)
-        self.horizontalLayout_37.setContentsMargins(2, 2, 2, 2)
-        self.horizontalLayout_37.setSpacing(0)
-        self.horizontalLayout_37.setObjectName("horizontalLayout_37")
-        self.historyForoFaceRecog3 = QtWidgets.QLabel(self.historyFaceRecog3)
-        self.historyForoFaceRecog3.setMaximumSize(QtCore.QSize(150, 150))
-        self.historyForoFaceRecog3.setText("")
-        self.historyForoFaceRecog3.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyForoFaceRecog3.setObjectName("historyForoFaceRecog3")
-        self.horizontalLayout_37.addWidget(self.historyForoFaceRecog3)
-        self.historyInfoFaceRecog3 = QtWidgets.QLabel(self.historyFaceRecog3)
-        self.historyInfoFaceRecog3.setMinimumSize(QtCore.QSize(300, 0))
-        self.historyInfoFaceRecog3.setStyleSheet(
-            "color: #ffffff;\n"
-            "font-family: Roboto;\n"
-            "font-size: 14px;\n"
-            "font-weight: bold;"
-        )
-        self.historyInfoFaceRecog3.setText("")
-        self.historyInfoFaceRecog3.setAlignment(QtCore.Qt.AlignCenter)
-        self.historyInfoFaceRecog3.setWordWrap(True)
-        self.historyInfoFaceRecog3.setObjectName("historyInfoFaceRecog3")
-        self.horizontalLayout_37.addWidget(self.historyInfoFaceRecog3)
-        self.verticalLayout_23.addWidget(self.historyFaceRecog3)
+        self.verticalLayout_7.addWidget(self.historyInfoFaceRecog1)
+        self.gridLayout.addWidget(self.historyFaceRecog1, 0, 0, 1, 1)
         self.horizontalLayout_33.addWidget(self.historyFaceRecogContainer)
         self.horizontalLayout_32.addWidget(self.mainContainerFaceRecog)
         self.stackedWidgetPage.addWidget(self.faceRecPage)
@@ -733,6 +594,9 @@ class Ui_Zastava(object):
         self.vehicleRecognition.setText(_translate("Zastava", "Обнаружение объектов"))
         self.faceRecognition.setText(_translate("Zastava", "Контроль доступа"))
         self.videoTitleAllRecog.setText(_translate("Zastava", "Видеопоток"))
+        self.OnOffAllRecogButton.setText(
+            _translate("Zastava", "Включить / выключить видеопоток")
+        )
         self.soundTitle.setText(_translate("Zastava", "Анализ звукового окружения"))
         self.YamnetTextBox.setHtml(
             _translate(
@@ -740,20 +604,22 @@ class Ui_Zastava(object):
                 '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n'
                 '<html><head><meta name="qrichtext" content="1" /><style type="text/css">\n'
                 "p, li { white-space: pre-wrap; }\n"
-                '</style></head><body style="color:white; font-size:7.8pt; font-weight:400; font-style:normal;">\n'
-                '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; color:white; -qt-block-indent:0; text-indent:0px; font-size:14.8pt;"><br /></p></body></html>',
+                "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14.8pt;"><br /></p></body></html>',
             )
         )
         self.historyText1.setText(
             _translate("Zastava", "<html><head/><body><p><br/></p></body></html>")
         )
         self.videoTitleFaceRecogText.setText(_translate("Zastava", "Видеопоток"))
+        self.OnOffVideoFaceRecogButton.setText(
+            _translate("Zastava", "Включить / выключить видеопоток")
+        )
         self.addUserButton.setText(
             _translate("Zastava", "Добавить пользователя в базу данных")
         )
 
-    def show_page_1(self):
-        self.stackedWidgetPage.setCurrentIndex(0)
+    def show_page_10(self):
         self.vehicleRecognition.setStyleSheet(
             "QPushButton{\n"
             "background-color: rgb(46, 46, 46);\n"
@@ -783,8 +649,7 @@ class Ui_Zastava(object):
             "}\n"
         )
 
-    def show_page_2(self):
-        self.stackedWidgetPage.setCurrentIndex(1)
+    def show_page_20(self):
         self.vehicleRecognition.setStyleSheet(
             "QPushButton{\n"
             "background-color: rgb(35, 35, 35);\n"

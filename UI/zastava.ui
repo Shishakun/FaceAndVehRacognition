@@ -236,7 +236,7 @@ background-color: rgb(46, 46, 46);
                      <number>0</number>
                     </property>
                     <property name="bottomMargin">
-                     <number>18</number>
+                     <number>0</number>
                     </property>
                     <item>
                      <widget class="QLabel" name="videoTitleAllRecog">
@@ -263,7 +263,7 @@ padding: 6px; </string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QFrame" name="videoWindowAllRecog">
+                     <widget class="QLabel" name="videoWindowAllRecog">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -272,19 +272,50 @@ padding: 6px; </string>
                       </property>
                       <property name="minimumSize">
                        <size>
-                        <width>1000</width>
+                        <width>182</width>
                         <height>700</height>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
+                       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(46, 46, 46);
+border-radius: 10px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px; </string>
                       </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
+                      <property name="text">
+                       <string/>
                       </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="OnOffAllRecogButton">
+                      <property name="minimumSize">
+                       <size>
+                        <width>182</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color: rgb(35, 35, 35);
+color: #ffffff;
+border-style: outset;
+border-radius: 7px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+}
+QPushButton:hover{
+background-color: rgb(46, 46, 46);
+}
+QPushButton:unactive{
+background-color: rgb(46, 46, 46);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Включить / выключить видеопоток</string>
                       </property>
                      </widget>
                     </item>
@@ -337,7 +368,7 @@ padding: 6px; </string>
                        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
@@ -970,6 +1001,30 @@ border-radius: 10px;</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QPushButton" name="OnOffVideoFaceRecogButton">
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
+background-color: rgb(35, 35, 35);
+color: #ffffff;
+border-style: outset;
+border-radius: 7px;
+font: bold 14px;
+min-width: 10em;
+padding: 6px;
+}
+QPushButton:hover{
+background-color: rgb(46, 46, 46);
+}
+QPushButton:unactive{
+background-color: rgb(46, 46, 46);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Включить / выключить видеопоток</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QFrame" name="usersButtonPanel">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -1060,7 +1115,7 @@ background-color: rgb(46, 46, 46);
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>500</width>
+                  <width>600</width>
                   <height>0</height>
                  </size>
                 </property>
@@ -1070,10 +1125,7 @@ background-color: rgb(46, 46, 46);
                   <height>16777215</height>
                  </size>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_23">
-                 <property name="spacing">
-                  <number>4</number>
-                 </property>
+                <layout class="QGridLayout" name="gridLayout">
                  <property name="leftMargin">
                   <number>0</number>
                  </property>
@@ -1086,7 +1138,7 @@ background-color: rgb(46, 46, 46);
                  <property name="bottomMargin">
                   <number>0</number>
                  </property>
-                 <item>
+                 <item row="0" column="0">
                   <widget class="QFrame" name="historyFaceRecog1">
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(46, 46, 46);
@@ -1098,35 +1150,29 @@ border-radius: 10px;</string>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_35">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
                     <item>
-                     <widget class="QLabel" name="historyForoFaceRecog1">
-                      <property name="maximumSize">
+                     <widget class="QLabel" name="historyPhotoFaceRecog1">
+                      <property name="minimumSize">
                        <size>
-                        <width>150</width>
-                        <height>150</height>
+                        <width>400</width>
+                        <height>600</height>
                        </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: #ffffff;
+font-family: Roboto;
+font-size: 14px;
+font-weight: bold;</string>
                       </property>
                       <property name="text">
                        <string/>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -1134,439 +1180,7 @@ border-radius: 10px;</string>
                      <widget class="QLabel" name="historyInfoFaceRecog1">
                       <property name="minimumSize">
                        <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: #ffffff;
-font-family: Roboto;
-font-size: 14px;
-font-weight: bold;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="historyFaceRecog2">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_36">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="historyForoFaceRecog2">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>150</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="historyInfoFaceRecog2">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: #ffffff;
-font-family: Roboto;
-font-size: 14px;
-font-weight: bold;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="historyFaceRecog7">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_41">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="historyForoFaceRecog7">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>150</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="historyInfoFaceRecog7">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: #ffffff;
-font-family: Roboto;
-font-size: 14px;
-font-weight: bold;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="historyFaceRecog6">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_40">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="historyForoFaceRecog6">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>150</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="historyInfoFaceRecog6">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: #ffffff;
-font-family: Roboto;
-font-size: 14px;
-font-weight: bold;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="historyFaceRecog5">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_39">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="historyForoFaceRecog5">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>150</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="historyInfoFaceRecog5">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: #ffffff;
-font-family: Roboto;
-font-size: 14px;
-font-weight: bold;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="historyFaceRecog4">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_38">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="historyForoFaceRecog4">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>150</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="historyInfoFaceRecog4">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: #ffffff;
-font-family: Roboto;
-font-size: 14px;
-font-weight: bold;</string>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                      <property name="wordWrap">
-                       <bool>true</bool>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QFrame" name="historyFaceRecog3">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(46, 46, 46);
-border-radius: 10px;</string>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_37">
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
-                    <property name="leftMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>2</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>2</number>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="historyForoFaceRecog3">
-                      <property name="maximumSize">
-                       <size>
-                        <width>150</width>
-                        <height>150</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="historyInfoFaceRecog3">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
+                        <width>400</width>
                         <height>0</height>
                        </size>
                       </property>

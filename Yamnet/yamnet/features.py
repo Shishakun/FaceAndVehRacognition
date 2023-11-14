@@ -36,11 +36,6 @@ def waveform_to_log_mel_spectrogram(waveform, params):
 def spectrogram_to_patches(spectrogram, params):
   """Break up a spectrogram into a stack of fixed-size patches."""
   with tf.name_scope('feature_patches'):
-    # Frame spectrogram (shape [<# STFT frames>, MEL_BANDS]) into patches 
-    # (the input examples).
-    # Only complete frames are emitted, so if there is less than 
-    # PATCH_WINDOW_SECONDS of waveform then nothing is emitted 
-    # (to avoid this, zero-pad before processing).
     hop_length_samples = int(
       round(params.SAMPLE_RATE * params.STFT_HOP_SECONDS))
     spectrogram_sr = params.SAMPLE_RATE / hop_length_samples

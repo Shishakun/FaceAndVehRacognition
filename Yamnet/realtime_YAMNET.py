@@ -24,8 +24,6 @@ def process_audio(display_func):
         frames_per_buffer=frame_len,
     )
 
-    cnt = 0
-    plt.ion()
     while True:
         # data read
         data = stream.read(frame_len, exception_on_overflow=False)
