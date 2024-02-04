@@ -20,7 +20,7 @@ import Yamnet.yamnet.yamnet as yamnet_model
 from loguru import logger
 
 from UI.addUsers import Ui_AddUsersWidget as AddUsersWidget
-from UI.Zastava import Ui_Zastava as ZastavaMainWindow
+from UI.zastava import Ui_Zastava as ZastavaMainWindow
 
 from PyQt5 import QtGui
 
@@ -217,9 +217,9 @@ class AddUserWidget(QWidget):
 
         conn = psycopg2.connect(
             host="localhost",
-            database="Zastava2",
+            database="zastava",
             user="postgres",
-            password="11ferhddegun11",
+            password="12345",
         )
 
         # Создание курсора
@@ -301,9 +301,9 @@ class Zastava(QtWidgets.QMainWindow):
         # Подключение к базе данных
         conn = psycopg2.connect(
             host="localhost",
-            database="Zastava2",
+            database="zastava",
             user="postgres",
-            password="11ferhddegun11",
+            password="12345",
         )
         # Создание курсора для выполнения SQL-запросов
         cursor = conn.cursor()
